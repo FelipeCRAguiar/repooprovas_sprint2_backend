@@ -6,10 +6,8 @@ import { testSchema } from "../schemas/testSchema.js";
 
 const testRouter = Router();
 
-testRouter.use(ensureAuthenticatedMiddleware)
-
 testRouter.get("/tests", testController.find);
-testRouter.post("/test", validateSchemaMiddleware(testSchema), testController.createTest)
-testRouter.patch("/test/:id", testController.addView)
+testRouter.post("/test", validateSchemaMiddleware(testSchema), ensureAuthenticatedMiddleware, testController.createTest)
+testRouter.patch("/test/:id", ensureAuthenticatedMiddleware, testController.addView)
 
 export default testRouter;
