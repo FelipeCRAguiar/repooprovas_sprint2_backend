@@ -35,7 +35,14 @@ async function getTestsByTeachers() {
   });
 }
 
+async function createTest(data: any) {
+  await prisma.test.create({
+    data: data
+  })
+}
+
 export default {
   getTestsByDiscipline,
   getTestsByTeachers,
+  createTest
 };

@@ -12,6 +12,15 @@ async function find(filter: Filter) {
   }
 }
 
+async function createTest(data: any) {
+  const testData = { ...data }
+  testData.categoryId = parseInt(testData.categoryId)
+  testData.teacherDisciplineId = parseInt(testData.teacherDisciplineId)
+  
+  await testRepository.createTest(testData)
+}
+
 export default {
   find,
+  createTest
 };
