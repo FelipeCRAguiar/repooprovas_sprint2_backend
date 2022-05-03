@@ -17,7 +17,7 @@ async function createTest(req: Request, res: Response) {
 
   await testService.createTest(data)
 
-  res.sendStatus(200)
+  res.sendStatus(201)
 }
 
 async function addView(req: Request, res: Response) {
