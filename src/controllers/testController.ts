@@ -17,10 +17,19 @@ async function createTest(req: Request, res: Response) {
 
   await testService.createTest(data)
 
-  res.send(200)
+  res.sendStatus(200)
+}
+
+async function addView(req: Request, res: Response) {
+  const testId = req.params.id
+
+  await testService.addView(testId)
+
+  res.sendStatus(200)
 }
 
 export default {
   find,
-  createTest
+  createTest,
+  addView
 };

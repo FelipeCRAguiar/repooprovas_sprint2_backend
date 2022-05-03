@@ -20,7 +20,14 @@ async function createTest(data: any) {
   await testRepository.createTest(testData)
 }
 
+async function addView(testId: any) {
+  const testIdNumber = parseInt(testId)
+
+  await testRepository.addView(testIdNumber)
+}
+
 export default {
   find,
-  createTest
+  createTest,
+  addView
 };

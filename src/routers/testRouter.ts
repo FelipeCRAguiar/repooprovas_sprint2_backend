@@ -10,5 +10,6 @@ testRouter.use(ensureAuthenticatedMiddleware)
 
 testRouter.get("/tests", testController.find);
 testRouter.post("/test", validateSchemaMiddleware(testSchema), testController.createTest)
+testRouter.patch("/test/:id", testController.addView)
 
 export default testRouter;

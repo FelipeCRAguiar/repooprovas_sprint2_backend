@@ -41,8 +41,20 @@ async function createTest(data: any) {
   })
 }
 
+async function addView(testId: any) {
+  await prisma.test.update({
+    where: {
+      id: testId
+    },
+    data : {
+      viewCount: { increment: 1 }
+    }
+  })
+}
+
 export default {
   getTestsByDiscipline,
   getTestsByTeachers,
-  createTest
+  createTest,
+  addView
 };
